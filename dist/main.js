@@ -1,1 +1,98 @@
-!function(e){var n={};function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}t.m=e,t.c=n,t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.r=function(e){Object.defineProperty(e,"__esModule",{value:!0})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},t.p="",t(t.s=1)}([function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r=function(){function e(e,n){for(var t=0;t<n.length;t++){var r=n[t];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(n,t,r){return t&&e(n.prototype,t),r&&e(n,r),n}}();var o=function(){function e(n){!function(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}(this,e),this.nodeArray=n}return r(e,[{key:"at",value:function(e){return this.nodeArray[e]}},{key:"html",value:function(e){if("string"!=typeof e)return this.nodeArray[0].innerHTML;this._each(function(n){n.innerHTML=e})}},{key:"empty",value:function(){this.html("")}},{key:"prepend",value:function(e){return this._each(function(n){n.innerHTML=e+n.innerHTML}),this}},{key:"append",value:function(e){return this._each(function(n){n.innerHTML+=e}),this}},{key:"addClass",value:function(e){return this._each(function(n){return n.classList.add(e)}),this}},{key:"removeClass",value:function(e){return this._each(function(n){return n.classList.remove(e)}),this}},{key:"toggleClass",value:function(e){return this._each(function(n){return n.classList.toggle(e)}),this}},{key:"find",value:function(n){var t=[];return this._each(function(e){return t.push(e.querySelectorAll(n))}),new e(t)}},{key:"remove",value:function(){return this._each(function(e){return e.remove()}),this}},{key:"children",value:function(){var n=[];return this._each(function(e){var t=Array.from(e.children);n.concat(t)}),new e(n)}},{key:"parent",value:function(){var n=[];return this._each(function(e){var t=e.parent;t.visited||n.push(t),t.visited=!0}),n.forEach(function(e){e.visited=!1}),new e(n)}},{key:"on",value:function(e,n){var t="cs-"+e;return this._each(function(r){r.addEventListener(e,n),r[t]||(r[t]=[]),r[t].push(n)}),this}},{key:"off",value:function(e,n){var t="cs-"+e;return this._each(function(r){n?r.removeEventListener(e,n):(r[t].forEach(function(n){r.removeEventListener(e,n)}),r[t]=[])}),this}},{key:"_each",value:function(e){this.nodeArray.forEach(e)}}]),e}();n.default=o},function(e,n,t){"use strict";var r,o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},u=t(0),i=(r=u)&&r.__esModule?r:{default:r};var a=[];function c(e){var n=void 0;switch(void 0===e?"undefined":o(e)){case"string":var t=document.querySelectorAll(e);n=Array.from(t);break;case"function":a.push(e);break;case HTMLElement:n=Array.from(e)}return new i.default(n)}document.addEventListener("DOMContentLoaded",function(){a.forEach(function(e){return e()})}),c.extend=function(){for(var e=arguments.length,n=Array(e),t=0;t<e;t++)n[t]=arguments[t];return Object.assign.apply(Object,[{}].concat(n))},c.ajax=function(e){return new Promise(function(n,t){var r=new XMLHttpRequest;(e=c.extend({contentType:"application/x-www-form-urlencoded; charset=UTF-8",method:"get",url:"",success:function(){},error:function(){},data:{}},e)).method=e.method.toUpperCase(),r.open(e.method,e.url,!0),r.onload=function(){r.status>=200&&r.status<300?n(JSON.parse(r.response)):t(JSON.parse(r.response))},r.send(JSON.stringify(e.data))})}}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/DomNodeCollection.js":
+/*!**********************************!*\
+  !*** ./src/DomNodeCollection.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar DOMNodeCollection = function () {\n  function DOMNodeCollection(nodeArray) {\n    _classCallCheck(this, DOMNodeCollection);\n\n    this.nodeArray = nodeArray;\n  }\n\n  _createClass(DOMNodeCollection, [{\n    key: 'at',\n    value: function at(index) {\n      return this.nodeArray[index];\n    }\n  }, {\n    key: 'html',\n    value: function html(text) {\n      if (typeof text === 'string') {\n        this._each(function (node) {\n          node.innerHTML = text;\n        });\n      } else {\n        return this.nodeArray[0].innerHTML;\n      }\n    }\n  }, {\n    key: 'empty',\n    value: function empty() {\n      this.html('');\n    }\n  }, {\n    key: 'prepend',\n    value: function prepend(newElement) {\n      this._each(function (node) {\n        node.innerHTML = newElement + node.innerHTML;\n      });\n      return this;\n    }\n  }, {\n    key: 'append',\n    value: function append(newElement) {\n      this._each(function (node) {\n        node.innerHTML += newElement;\n      });\n      return this;\n    }\n  }, {\n    key: 'addClass',\n    value: function addClass(className) {\n      this._each(function (node) {\n        return node.classList.add(className);\n      });\n      return this;\n    }\n  }, {\n    key: 'removeClass',\n    value: function removeClass(className) {\n      this._each(function (node) {\n        return node.classList.remove(className);\n      });\n      return this;\n    }\n  }, {\n    key: 'toggleClass',\n    value: function toggleClass(className) {\n      this._each(function (node) {\n        return node.classList.toggle(className);\n      });\n      return this;\n    }\n  }, {\n    key: 'find',\n    value: function find(selector) {\n      var foundNodes = [];\n      this._each(function (node) {\n        return foundNodes.push(node.querySelectorAll(selector));\n      });\n      return new DOMNodeCollection(foundNodes);\n    }\n  }, {\n    key: 'remove',\n    value: function remove() {\n      this._each(function (node) {\n        return node.remove();\n      });\n      return this;\n    }\n  }, {\n    key: 'children',\n    value: function children() {\n      var allChildrenNodes = [];\n      this._each(function (node) {\n        var nodeChildren = Array.from(node.children);\n        allChildrenNodes.concat(nodeChildren);\n      });\n      return new DOMNodeCollection(allChildrenNodes);\n    }\n  }, {\n    key: 'parent',\n    value: function parent() {\n      var parentNodes = [];\n      this._each(function (node) {\n        var nodeParent = node.parent;\n        //should only include each parent once\n        if (!nodeParent.visited) {\n          parentNodes.push(nodeParent);\n        }\n        nodeParent.visited = true;\n      });\n\n      //changes visited back to false for future calls\n      parentNodes.forEach(function (node) {\n        node.visited = false;\n      });\n      return new DOMNodeCollection(parentNodes);\n    }\n  }, {\n    key: 'on',\n    value: function on(event, callback) {\n      var eventKey = 'cs-' + event;\n      this._each(function (node) {\n        node.addEventListener(event, callback);\n        if (!node[eventKey]) {\n          node[eventKey] = [];\n        }\n        //saves event/callback for removal purposes\n        node[eventKey].push(callback);\n      });\n      return this;\n    }\n  }, {\n    key: 'off',\n    value: function off(event, callback) {\n      var eventKey = 'cs-' + event;\n      this._each(function (node) {\n        if (callback) {\n          //removes specific callback handler if provided\n          node.removeEventListener(event, callback);\n        } else {\n          //removes all listeners attached to the event\n          node[eventKey].forEach(function (cb) {\n            node.removeEventListener(event, cb);\n          });\n          node[eventKey] = [];\n        }\n      });\n      return this;\n    }\n  }, {\n    key: '_each',\n    value: function _each(callback) {\n      this.nodeArray.forEach(callback);\n    }\n  }]);\n\n  return DOMNodeCollection;\n}();\n\nexports.default = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/DomNodeCollection.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _typeof = typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; };\n\nvar _DomNodeCollection = __webpack_require__(/*! ./DomNodeCollection */ \"./src/DomNodeCollection.js\");\n\nvar _DomNodeCollection2 = _interopRequireDefault(_DomNodeCollection);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar fxArray = [];\n\nfunction $f(selector) {\n  var nodeArray = void 0;\n  switch (typeof selector === 'undefined' ? 'undefined' : _typeof(selector)) {\n    case 'string':\n      var nodeList = document.querySelectorAll(selector);\n      nodeArray = Array.from(nodeList);\n      break;\n    case 'function':\n      fxArray.push(selector);\n      break;\n    case HTMLElement:\n      nodeArray = Array.from(selector);\n      break;\n  }\n\n  return new _DomNodeCollection2.default(nodeArray);\n}\n\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  fxArray.forEach(function (fx) {\n    return fx();\n  });\n});\n\n$f.extend = function () {\n  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {\n    args[_key] = arguments[_key];\n  }\n\n  return Object.assign.apply(Object, [{}].concat(args));\n};\n\n$f.ajax = function (options) {\n  return new Promise(function (resolve, reject) {\n    var xhr = new XMLHttpRequest();\n    var defaults = {\n      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',\n      method: \"get\",\n      url: \"\",\n      success: function success() {},\n      error: function error() {},\n      data: {}\n    };\n    options = $f.extend(defaults, options);\n    options.method = options.method.toUpperCase();\n\n    xhr.open(options.method, options.url, true);\n    xhr.onload = function () {\n      if (xhr.status >= 200 && xhr.status < 300) {\n        resolve(JSON.parse(xhr.response));\n      } else {\n        reject(JSON.parse(xhr.response));\n      }\n    };\n\n    xhr.send(JSON.stringify(options.data));\n  });\n};\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ })
+
+/******/ });
