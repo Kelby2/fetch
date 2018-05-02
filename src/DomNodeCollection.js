@@ -61,6 +61,31 @@ class DOMNodeCollection {
     return this;
   }
 
+  children() {
+    let allChildrenNodes = [];
+    this._each(node => {
+      const nodeChildren = Array.from(node.children);
+      allChildrenNodes.concat(nodeChildren);
+    });
+    return new DOMNodeCollection(allChildrenNodes);
+  }
+
+  parent() {
+    let parentNodes = [];
+    this._each(node => {
+      const nodeParent = node.parent;
+      //should only include each parent once
+      if (!nodeParent.visited) { parentNodes.push(nodeParent); }
+      nodeParent.visited = true;
+    });
+
+    //changes visited back to false for future calls
+    parentNodes.forEach(node => {
+      node.visited = false;
+    });
+    return new DOMNodeCollection(parentNodes);
+  }
+
   _each(callback) {
     this.nodeArray.forEach(callback);
   }
