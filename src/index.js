@@ -44,7 +44,7 @@ $f.ajax = options => {
     if (options.method === 'GET') {
       options.url += `?${_createQueryString(options.data)}`
     }
-    debugger
+    
     xhr.open(options.method, options.url, true);
     xhr.onload = () => {
       if (xhr.status >= 200 && xhr.status < 300) {
