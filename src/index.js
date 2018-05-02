@@ -28,15 +28,6 @@ $f.extend = (...args) => {
   return Object.assign({}, ...args);
 };
 
-_toQueryString = obj => {
-  let result;
-  for (const prop in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-      result += `${prop}=${obj[prop]&}`
-    }
-  }
-}
-
 $f.ajax = options => {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -48,7 +39,7 @@ $f.ajax = options => {
       error: () => {},
       data: {},
     }
-    const options = $f.extend(defaults, options);
+    options = $f.extend(defaults, options);
     options.method = options.method.toUpperCase();
 
     xhr.open(options.method, options.url, true);
