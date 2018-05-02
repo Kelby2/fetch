@@ -54,3 +54,5 @@ $f.ajax = options => {
     xhr.send(JSON.stringify(options.data));
   });
 };
+
+window.$f = $f;
