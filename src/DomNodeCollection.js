@@ -86,6 +86,34 @@ class DOMNodeCollection {
     return new DOMNodeCollection(parentNodes);
   }
 
+  on(event, callback) {
+    const eventKey = `cs-${event}`;
+    this._each(node => {
+      node.addEventListener(event, callback);
+      if (!node[eventKey]) { node[eventKey] = []; }
+      //saves event/callback for removal purposes
+      node[eventKey].push(callback);
+    });
+    return this;
+  }
+
+  off(event, callback) {
+    const eventKey = `cs-${event}`;
+    this._each(node => {
+      if (callback) {
+        //removes specific callback handler if provided
+        node.removeEventListener(event, callback);
+      } else {
+        //removes all listeners attached to the event
+        node[eventKey].forEach(cb => {
+          node.removeEventListener(event, cb);
+        });
+        node[eventKey] = [];
+      }
+    });
+    return this;
+  }
+
   _each(callback) {
     this.nodeArray.forEach(callback);
   }
