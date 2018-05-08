@@ -21,6 +21,16 @@ class DOMNodeCollection {
     this.html('');
   }
 
+  first() {
+    const firstNode = this.nodeArray[0];
+    return new DOMNodeCollection([firstNode]);
+  }
+
+  last() {
+    const lastNode = this.nodeArray[this.nodeArray.length-1];
+    return new DOMNodeCollection([lastNode]);
+  }
+
   prepend(newElement) {
     this._each(node => {
       node.innerHTML = newElement + node.innerHTML;
@@ -52,7 +62,8 @@ class DOMNodeCollection {
 
   find(selector) {
     let foundNodes = [];
-    this._each(node => foundNodes.push(node.querySelectorAll(selector)));
+    this._each(node => foundNodes.push(...node.querySelectorAll(selector)));
+    debugger
     return new DOMNodeCollection(foundNodes);
   }
 
