@@ -44,7 +44,7 @@ $f.ajax = options => {
     if (options.method === 'GET') {
       options.url += `?${_createQueryString(options.data)}`
     }
-    
+
     xhr.open(options.method, options.url, true);
     xhr.onload = () => {
       if (xhr.status >= 200 && xhr.status < 300) {
@@ -60,7 +60,7 @@ $f.ajax = options => {
 
 const _createQueryString = obj => {
   let queryParams = [];
-  for (keys in obj) {
+  for (const keys in obj) {
     const param = `${keys}=${obj[keys]}`
     queryParams.push(param);
   }
