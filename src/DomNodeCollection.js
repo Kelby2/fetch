@@ -84,7 +84,7 @@ class DOMNodeCollection {
   parent() {
     let parentNodes = [];
     this._each(node => {
-      const nodeParent = node.parent;
+      const nodeParent = node.parentElement;
       //should only include each parent once
       if (!nodeParent.visited) { parentNodes.push(nodeParent); }
       nodeParent.visited = true;
