@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang='en' dir='ltr'>
   <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="./dist/main.js"></script>
+    <meta charset='utf-8'>
+    <title>Fetch!</title>
+    <script src='./dist/main.js'></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
   </head>
-  <body>
-
+  <body id='app'>
+    <header>
+      <h1 id='title'>Fetch Demo</h1>
+    </header>
+    <main id='demo'>
+      <section class='input-container'>
+        <div class='forms'>
+          <form id='ajax-input'>
+            Enter a location to see coffeeshops in that area<br>
+            <input
+              type='text'
+              placeholder='Enter a location'
+            />
+            <input
+              type='submit'
+              value='Search'
+            />
+            <input
+              class='clear-btn'
+              type='button'
+              value='Clear'
+            />
+          </form>
+        </div>
+        <img src='./assets/images/output.png' />
+      </section>
+      <section class='output-container'>
+        <div id='result'></div>
+      </section>
+    </main>
+    <form id='toggle-input'>
+      <select id='ele-selector'>
+        <option selected disabled hidden>Choose an element</option>
+        <optgroup label='HTML Elements on this page'>
+          <option value='*'>*</option>
+          <option value='h1'>h1</option>
+          <option value='section'>section</option>
+          <option value='img'>img</option>
+        </optgroup>
+        <optgroup label='Example id attributes being used'>
+          <option value='#app'>app</option>
+          <option value='#demo'>demo</option>
+          <option value='#title'>title</option>
+        </optgroup>
+      </select>
+      <input type='submit' value='Toggle Border'/>
+    </form>
   </body>
+  <script src='./demo/index.js' async></script>
 </html>
