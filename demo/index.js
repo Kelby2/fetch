@@ -1,12 +1,12 @@
 const results = $f('#result');
-const ajaxForm = $f('#ajax-input');
+const ajaxForm = $f('#ajax-form');
 const toggleForm = $f('#toggle-input');
 const clearBtn = $f('.clear-btn');
+const locInput = $f('.ajax-input');
 
 function renderData(venues) {
   venueData = venues.map(venue => {
-      return `<li>${venue.name}<br>
-      ${venue.location.formattedAddress.join(' ')}</li>`
+      return `<li>${venue.name}<br>${venue.location.formattedAddress.slice(0,-1).join(' ')}</li>`
   }).join(' ')
   results.append(venueData);
 }
@@ -14,7 +14,7 @@ function renderData(venues) {
 function toggleClass() {
   event.preventDefault();
   const selection = $f(event.currentTarget[0].value);
-  selection.toggleClass('hide')
+  selection.toggleClass('red-border')
 }
 
 function renderError(errors) {
@@ -40,7 +40,10 @@ function fetchCoffee() {
   }
 
   $f.ajax(options)
-    .then(data => renderData(data.response.venues))
+    .then(data => {
+      renderData(data.response.venues)
+      locInput.at(0).value = '';
+    })
     .catch(err => renderError())
 }
 
