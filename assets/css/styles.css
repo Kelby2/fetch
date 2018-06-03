@@ -4,9 +4,12 @@
 
 li {
   list-style: disc;
+  padding-left: 2%;
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   background-color: #86c7f3;
 }
@@ -21,17 +24,26 @@ li {
 }
 
 #demo {
+  padding-top: 2%;
   display: flex;
-  height: 30%;
-  margin-top: 10%;
+  height: 100%;
 }
 
-.input-container {
+.inputc {
+  position: relative;
+  font-size: 18px;
+}
+
+.outputc {
+
+}
+
+.container {
   width: 50%;
+  height: 50%;
   display: flex;
   justify-content: center;
-  position: relative;
-  font-size: 14px;
+  padding: 5px;
 }
 
 .forms {
@@ -41,6 +53,22 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+#ajax-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+  font-weight: bolder;
+}
+
+.ajax-input {
+  width: 50%;
+  font-size: 18px;
+  outline: none;
+  padding-left: 5px;
 }
 
 #toggle-input {
@@ -59,17 +87,10 @@ li {
   border-radius: 5px;
 }
 
-.output-container {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-}
-
 #result {
   width: 70%;
   min-height: 90%;
   background-color: #ffffff;
-  padding-left: 2%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -84,12 +105,30 @@ input[type=button], input[type=submit] {
   width: 50%;
 }
 
-.input-container > img {
+.inputc > img {
   position: absolute;
   right: -25px;
   top: 30%;
 }
 
-.hide {
+.red-border {
   border: 2px solid red;
+}
+
+@media only screen and (max-width: 800px) {
+  #demo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 85%;
+    min-height: 40%;
+    height: fit-content;
+  }
+
+  .inputc > img {
+    display: none;
+  }
 }
