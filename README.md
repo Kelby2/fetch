@@ -3,8 +3,11 @@
 Fetch at it's core is a DOM manipulation library. A stripped down version of the notorious jQuery, Fetch comes with all the core functionalities and none of the baggage.
 
 #### How To Use
+Include the following in the head of your HTML and start using ```$f(selector)``` to create a collection of DOM elements.
 
-
+```html
+<script src='https://cdn.rawgit.com/Kelby2/fetch/39c979e2/dist/main.js'></script>
+```
 #### Selector
 ```JavaScript
 $f('h1')      //Returns a collection of all h1 elements
@@ -22,7 +25,7 @@ collection.toggleClass(className);
   //Adds or removes one or more class names from each element in the collection, depending on the presence of the class
 ```
 
-### Traversal
+#### Traversal
 ```JavaScript
 collection.first(); //Returns the first element in the collection
 collection.last(); //Returns the last element in the collection
