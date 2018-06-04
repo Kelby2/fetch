@@ -18,7 +18,7 @@ function toggleClass() {
 }
 
 function renderError(errors) {
-  results.append(`<div>Please enter a valid location</div>`)
+  results.append(`<li>Please enter a valid location</li>`)
 }
 
 function fetchCoffee() {
