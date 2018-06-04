@@ -31,18 +31,16 @@ class DOMNodeCollection {
     return new DOMNodeCollection([lastNode]);
   }
 
-  prepend(newElement) {
-    this._each(node => {
-      node.innerHTML = newElement + node.innerHTML;
-    });
-    return this;
-  }
-
-  append(newElement) {
-    this._each(node => {
-      node.innerHTML += newElement;
-    });
-    return this;
+  append(newChildren) {
+    if (typeof newChildren === 'string') {
+      this._each(node => node.innerHTML += newChildren);
+    } else if (newChildren instanceof DOMNodeCollection) {
+      this._each(node => {
+        newChildren._each(childNode => {
+          node.appendChild(childNode.cloneNode(true))
+        });
+      })
+    }
   }
 
   addClass(className) {
@@ -63,12 +61,11 @@ class DOMNodeCollection {
   find(selector) {
     let foundNodes = [];
     this._each(node => foundNodes.push(...node.querySelectorAll(selector)));
-    debugger
     return new DOMNodeCollection(foundNodes);
   }
 
   remove() {
-    this._each(node => node.remove());
+    this._each(node => node.parentNode.removeChild());
     return this;
   }
 
