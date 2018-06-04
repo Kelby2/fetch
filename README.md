@@ -17,25 +17,18 @@ const collection = $f(selector);
 
 ### DOM Manipulation
 ```JavaScript
-collection.html([text]); //Assigns the argument to the innerHTML of each element in
-//the collection. If no argument is given, returns the innerHTML of the first element
-//in the collection.
-collection.append(element); //Adds the passed in argument to every node
-//element in the collection
-collection.addClass(className); //Adds the specified class to all elements in
-//the collection
-collection.removeClass(className); //Removes the specified class from all elements in
-//the collection. No-op if the element does already the specified class
-collection.toggleClass(className); //Adds or removes one or more class names from
-//each element in the collection, depending on the presence of the class
+collection.html([text]); //Assigns the argument to the innerHTML of each element in the collection. If no argument is given, returns the innerHTML of the first element in the collection.
+collection.append(element); //Adds the passed in argument to every node element in the collection
+collection.addClass(className); //Adds the specified class to all elements in the collection
+collection.removeClass(className); //Removes the specified class from all elements in the collection. No-op if the element does already the specified class
+collection.toggleClass(className); //Adds or removes one or more class names from each element in the collection, depending on the presence of the class
 ```
 
 ### Traversal
 ```JavaScript
 collection.first(); //Returns the first element in the collection
 collection.last(); //Returns the last element in the collection
-collection.children(); //Returns a new collection consisting of the children
-//from each element in the given collection
+collection.children(); //Returns a new collection consisting of the children from each element in the given collection
 collection.parent(); //Returns a distinct collection of the parents of each element
 ```
 
