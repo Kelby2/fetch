@@ -6,7 +6,7 @@ Fetch at it's core is a DOM manipulation library. A stripped down version of the
 Include the following in the head of your HTML and start using ```$f(selector)``` to create a collection of DOM elements.
 
 ```html
-<script src='https://cdn.rawgit.com/Kelby2/fetch/39c979e2/dist/main.js'></script>
+<script src='https://cdn.rawgit.com/Kelby2/fetch/0f17b802/dist/main.js'></script>
 ```
 ### Selector
 ```JavaScript
